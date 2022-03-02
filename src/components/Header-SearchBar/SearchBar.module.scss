@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    width: 25%;
+    height: 40%;
+    border: solid 1px #fff;
+    background-color: transparent;
+    padding: 0 0 0 10px;
+}
+
+.text {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+}
