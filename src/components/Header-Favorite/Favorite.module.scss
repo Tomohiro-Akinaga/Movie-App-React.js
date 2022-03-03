@@ -16,6 +16,8 @@
     }
 }
 
-// .bookmark {
-//     width: 100%;
-// }
+@media only screen and (max-width: 545px) {
+    .favoriteButton {
+        display: none;
+    }
+}

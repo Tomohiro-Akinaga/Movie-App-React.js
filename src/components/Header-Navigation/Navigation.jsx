@@ -10,7 +10,6 @@ function Navigation() {
     function handleClick() {
         setActive(!active);
     }
-    // const listsStatus = lists ? "is-active" : "";
 
     return (
         <nav className={NavigationStyle.navigation}>
@@ -22,7 +21,7 @@ function Navigation() {
                 <li className={`${NavigationStyle.list} ${NavigationStyle.active}`} >Home</li>
                 <li className={NavigationStyle.list}>TV Shows</li>
                 <li className={NavigationStyle.list}>Movies</li>
-                <li className={NavigationStyle.list}>New &amp; Popular</li>
+                <li className={`${NavigationStyle.list} ${NavigationStyle.newAndPopular}`}>New &amp; Popular</li>
             </ul>
         </nav>
     )

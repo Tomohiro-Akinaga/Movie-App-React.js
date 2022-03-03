@@ -35,13 +35,8 @@
     }
 }
 
-// @media only screen and (max-width: 900px) {
-//     .container {
-//         padding: 5px 0 5px 10px;
-//     }
-//     .searchButton {
-//         margin-left: 5px;
-//         margin-right: 5px;
-//         padding: 0px;
-//     }
-// }
+@media only screen and (max-width: 545px) {
+    .container {
+        display: none;
+    }
+}

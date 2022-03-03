@@ -85,3 +85,22 @@
         }
     }
 }
+
+@media only screen and (max-width: 545px) {
+    .genreContainer {
+        display: none;
+    }
+    .lists {
+        display: flex;
+    }
+    .active {
+        display: none;
+    }
+    .list {
+        font-size: 1rem;
+        color: #fff;
+    }
+    .newAndPopular {
+        display: none;
+    }
+}
