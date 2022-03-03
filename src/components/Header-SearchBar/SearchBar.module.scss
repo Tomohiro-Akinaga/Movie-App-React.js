@@ -1,7 +1,8 @@
 .container {
     display: flex;
-    width: 30%;
-    height: 50%;
+    height: 30px;
+    width: 230px;
+    justify-content: space-between;
     border: solid 1px #fff;
     background-color: transparent;
     padding: 0 0 0 10px;
@@ -17,11 +18,12 @@
 }
 
 .searchButton {
+    font-size: 1.2rem;
     background-color: transparent;
     border: none;
     margin-left: 5px;
-    padding: 5px;
-    transition: 0.1s;
+    margin-right: 5px;
+    transition: 0.2s;
     &:hover {
         cursor: pointer;
     }
@@ -33,17 +35,13 @@
     }
 }
 
-.magnifyingGlass {
-    height: 100%;
-}
-
-@media only screen and (max-width: 884px) {
-    .container {
-        padding: 5px 0 5px 10px;
-    }
-    .searchButton {
-        margin-left: 5px;
-        margin-right: 5px;
-        padding: 0px;
-    }
-}
+// @media only screen and (max-width: 884px) {
+//     .container {
+//         padding: 5px 0 5px 10px;
+//     }
+//     .searchButton {
+//         margin-left: 5px;
+//         margin-right: 5px;
+//         padding: 0px;
+//     }
+// }

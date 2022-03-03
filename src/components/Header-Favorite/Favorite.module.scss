@@ -1,9 +1,10 @@
 .favoriteButton {
     height: 100%;
+    margin-left: 20px;
+    font-size: 1.3rem;
     background-color: transparent;
     border: none;
-    transform: scale(0.4);
-    transition: 0.1s;
+    transition: 0.2s;
     &:hover {
         cursor: pointer;
     }
@@ -11,10 +12,10 @@
         outline: none;
     }
     &:active {
-        transform: scale(0.3);
+        transform: scale(0.8);
     }
 }
 
-.bookmark {
-    height: 100%;
-}
+// .bookmark {
+//     width: 100%;
+// }
