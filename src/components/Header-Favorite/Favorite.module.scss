@@ -1,5 +1,20 @@
-.favorite {
-    height: 60%;
+.favoriteButton {
+    height: 100%;
     background-color: transparent;
     border: none;
+    transform: scale(0.4);
+    transition: 0.1s;
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:active {
+        transform: scale(0.3);
+    }
+}
+
+.bookmark {
+    height: 100%;
 }

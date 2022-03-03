@@ -1,13 +1,13 @@
 .container {
     display: flex;
-    width: 25%;
-    height: 40%;
+    width: 30%;
+    height: 50%;
     border: solid 1px #fff;
     background-color: transparent;
     padding: 0 0 0 10px;
 }
 
-.text {
+.inputText {
     width: 100%;
     background-color: transparent;
     border: none;
@@ -16,7 +16,34 @@
     }
 }
 
-.button {
+.searchButton {
     background-color: transparent;
     border: none;
+    margin-left: 5px;
+    padding: 5px;
+    transition: 0.1s;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        transform: scale(0.8); 
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+.magnifyingGlass {
+    height: 100%;
+}
+
+@media only screen and (max-width: 884px) {
+    .container {
+        padding: 5px 0 5px 10px;
+    }
+    .searchButton {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 0px;
+    }
 }

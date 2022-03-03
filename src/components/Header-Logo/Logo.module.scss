@@ -1,3 +1,16 @@
 .logo {
     text-transform: uppercase;
+    color: rgb(227, 0, 0);
+    font-size: 1.7rem;
+    // transform: scale(1, 1.3);
 }
+
+
+@media only screen and (max-width: 884px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+}
+
+
+

@@ -1,4 +1,21 @@
-.navigation {
+.lists {
     list-style: none;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.list {
+    font-weight: 300;
+    color: rgb(150, 150, 150);
+    margin-left: 20px;
+    transition: all 0.3s;
+    &:hover {
+        cursor: pointer;
+        color: #fff;
+    }
+    &.active {
+        color: #fff;
+    }
 }

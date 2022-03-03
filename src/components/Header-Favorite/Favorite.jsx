@@ -4,8 +4,8 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
 function Favorite() {
     return (
-        <button className={FavoriteStyle.favorite} type="button">
-            <FontAwesomeIcon icon={faBookmark} />
+        <button className={FavoriteStyle.favoriteButton} type="button">
+            <FontAwesomeIcon icon={faBookmark} className={FavoriteStyle.bookmark}/>
         </button>
     )
 }

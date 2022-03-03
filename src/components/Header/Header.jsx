@@ -7,10 +7,14 @@ import HeaderStyle from "./Header.module.scss";
 function Header() {
     return (
         <header className={HeaderStyle.header}>
-            <Logo />
-            <Navigation />
-            <SearchBar />
-            <Favorite />
+            <div className={HeaderStyle.headerLeft}>
+                <Logo />
+                <Navigation />
+            </div>
+            <div className={HeaderStyle.headerRight}>
+                <SearchBar />
+                <Favorite />
+            </div>
         </header>
     )
 }
