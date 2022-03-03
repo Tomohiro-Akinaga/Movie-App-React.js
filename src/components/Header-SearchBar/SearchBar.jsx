@@ -6,7 +6,7 @@ function SearchBar() {
     return (
         <form className={SearchBarStyle.container}>
             <input type="text" className={SearchBarStyle.inputText} placeholder="Titles, people, genre" />
-            <button type="button" className={SearchBarStyle.searchButton}>
+            <button type="submit" className={SearchBarStyle.searchButton}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} className={SearchBarStyle.magnifyingGlass}/>
             </button>
         </form>
