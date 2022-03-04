@@ -7,14 +7,11 @@ const i = Math.floor(Math.random() * 10);
 
 function Main() {
     const mainMovie = useMainMovie();
-    console.log(mainMovie);
     return (
-        <>
+        <div className={MainStyle.image}>
             {mainMovie && <Image mainMovieImage={mainMovie.results[i].poster_path}/>}
-            {/* <Description />
-            <PlayCard />
-            <InfoCard /> */}
-        </>
+            {mainMovie && <Image mainMovieImage={mainMovie.results[i+1].poster_path}/>}
+        </div>
     )
 }
 

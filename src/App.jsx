@@ -22,10 +22,10 @@ const analytics = getAnalytics(app);
 /* App component */
 function App() {
     return (
-        <div>
+        <>
             <Header />
             <Main />
-        </div>
+        </>
     );
 }
 
