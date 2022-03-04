@@ -1,0 +1,23 @@
+.favoriteButton {
+    height: 100%;
+    margin-left: 20px;
+    font-size: 1.3rem;
+    background-color: transparent;
+    border: none;
+    transition: 0.2s;
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:active {
+        transform: scale(0.8);
+    }
+}
+
+@media only screen and (max-width: 545px) {
+    .favoriteButton {
+        display: none;
+    }
+}

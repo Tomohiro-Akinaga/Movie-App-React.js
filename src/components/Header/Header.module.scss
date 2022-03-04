@@ -1,0 +1,39 @@
+@import "../../variables.scss";
+
+.header {
+    height: 65px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    justify-content: space-between;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+    .header {
+        height: 40px;
+    }
+}
+
+@media only screen and (max-width: 545px) {
+    .header {
+        height: 40px;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.81);
+    }
+}
+
