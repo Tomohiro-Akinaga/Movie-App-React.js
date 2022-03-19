@@ -1,8 +1,9 @@
-import { mainMovieAPI } from "../../api/mainMovieAPI.js";
+import SignUpStyle from "./SignUp.module.scss";
 
 export default function SignUp() {
-    const json = mainMovieAPI();
-    console.log(json.page);
-
-    return <h1>Sign Up</h1>;
+    return (
+        <div className={SignUpStyle.container}>
+            <div className={SignUpStyle.wrapper}>{/* <SignUpForm /> */}</div>
+        </div>
+    );
 }

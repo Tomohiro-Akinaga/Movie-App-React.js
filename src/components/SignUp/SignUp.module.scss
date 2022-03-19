@@ -1,0 +1,10 @@
+.container {
+    height: 100vh;
+    background-image: url(../../assets/signup-background.png);
+    background-size: contain;
+}
+
+.wrapper {
+    height: 100%;
+    backdrop-filter: brightness(45%);
+}
