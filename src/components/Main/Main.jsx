@@ -8,10 +8,10 @@ const i = Math.floor(Math.random() * 10);
 function Main() {
     const mainMovie = useMainMovie();
     return (
-        <div className={MainStyle.image}>
+        <main className={MainStyle.image}>
             {mainMovie && <Image mainMovieImage={mainMovie.results[i].poster_path}/>}
             {mainMovie && <Image mainMovieImage={mainMovie.results[i+1].poster_path}/>}
-        </div>
+        </main>
     )
 }
 
