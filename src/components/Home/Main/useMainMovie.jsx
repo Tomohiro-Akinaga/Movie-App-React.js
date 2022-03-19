@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchMainMovie } from "../../api/mainMovieAPI.js";
+import { fetchMainMovie } from "../../../api/mainMovieAPI.js";
 
 function useMainMovie() {
     const [main, setMain] = useState();

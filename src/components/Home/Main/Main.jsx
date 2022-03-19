@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import useMainMovie from "./useMainMovie.jsx";
-import Image from "../Main-Image/Image.jsx";
+import Image from "./Main-Image/Image.jsx";
 import MainStyle from "./Main.module.scss";
 
 const i = Math.floor(Math.random() * 10);
