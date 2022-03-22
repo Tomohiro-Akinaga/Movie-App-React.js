@@ -2,8 +2,13 @@
 
 .container {
     height: 100vh;
-    background-image: url(../../assets/signup-background.png);
+    background-image: url(../../assets/signin-background.png);
     background-size: contain;
+}
+
+.image {
+    height: 30%;
+    margin: 0;
 }
 
 .backdrop {
@@ -16,21 +21,21 @@
     flex-direction: column;
 }
 
-.logo {
-    font-size: 3rem;
-    color: $netflix-logo;
-    text-transform: uppercase;
-    position: fixed;
-    top: 0;
-    left: 30px;
-}
+// .logo {
+//     font-size: 3rem;
+//     color: $netflix-logo;
+//     text-transform: uppercase;
+//     position: fixed;
+//     top: 0;
+//     left: 30px;
+// }
 
-@media only screen and (max-width: 740px) {
-    .container {
-        background-color: #000;
-        background-image: none;
-    }
-    .logo {
-        position: inherit;
-    }
-}
+// @media only screen and (max-width: 740px) {
+//     .container {
+//         background-color: #000;
+//         background-image: none;
+//     }
+//     .logo {
+//         position: inherit;
+//     }
+// }

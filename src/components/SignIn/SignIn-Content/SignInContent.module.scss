@@ -1,0 +1,48 @@
+@import "../../../variables.scss";
+
+.content {
+    width: 450px;
+    height: 550px;
+    background-color: $signup-content-background;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.signin {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+}
+
+.link,
+.text {
+    font-size: 1rem;
+    border-bottom: solid 1px transparent;
+}
+
+.text {
+    color: $signup-text;
+    margin-right: 10px;
+}
+
+.link {
+    &:hover {
+        cursor: pointer;
+        border-bottom: solid 1px #fff;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    .content {
+        width: 100%;
+    }
+}
