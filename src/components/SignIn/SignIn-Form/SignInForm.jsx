@@ -22,8 +22,12 @@ export default function SignUpForm() {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode);
+                const firebaseError = helperErrorCheck(
+                    errorCode,
+                    email,
+                    password
+                );
+                setFormError(firebaseError);
             });
     };
 
