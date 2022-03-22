@@ -13,13 +13,10 @@ export default function SignUpForm() {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const [formError, setFormError] = useState({});
-
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const errorMessage = helperErrorCheck(email, password, confirmPassword);
-        setFormError(errorMessage);
         if (password !== confirmPassword) {
             return null;
         }
@@ -30,7 +27,12 @@ export default function SignUpForm() {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = helperAuthErrorMessage(errorCode);
+                const errorMessage = helperErrorCheck(
+                    errorCode,
+                    email,
+                    password,
+                    confirmPassword
+                );
                 setFormError(errorMessage);
             });
     };
