@@ -4,7 +4,6 @@ import { auth } from "../../../config/firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import FirebaseAuthErrorMessage from "./FirebaseAuthErrorMessage/FirebaseAuthErrorMessage";
 import helperErrorCheck from "./helperErrorCheck";
-import helperAuthErrorMessage from "./helperAuthErrorMessage";
 import FormStyle from "./SignUpForm.module.scss";
 
 export default function SignUpForm() {
