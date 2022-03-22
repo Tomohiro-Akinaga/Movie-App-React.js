@@ -1,15 +1,12 @@
 import MessageStyle from "./Message.module.scss";
-import helperErrorMessage from "./helperErrorMessage";
 import PropTypes from "prop-types";
 
-function FirebaseAuthErrorMessage({ error }) {
-    console.log(error);
-    let message = helperErrorMessage(error);
-    return <p className={MessageStyle.message}>{message}</p>;
+function FirebaseAuthErrorMessage({ formError }) {
+    return <p className={MessageStyle.message}>{formError}</p>;
 }
 
 FirebaseAuthErrorMessage.propTypes = {
-    error: PropTypes.string,
+    formError: PropTypes.string,
 };
 
 export default FirebaseAuthErrorMessage;

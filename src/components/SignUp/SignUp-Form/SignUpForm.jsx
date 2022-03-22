@@ -3,28 +3,35 @@ import { useNavigate } from "react-router";
 import { auth } from "../../../config/firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import FirebaseAuthErrorMessage from "./FirebaseAuthErrorMessage/FirebaseAuthErrorMessage";
+import helperErrorCheck from "./helperErrorCheck";
+import helperAuthErrorMessage from "./helperAuthErrorMessage";
 import FormStyle from "./SignUpForm.module.scss";
 
 export default function SignUpForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [error, setError] = useState();
+
+    const [formError, setFormError] = useState({});
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const errorMessage = helperErrorCheck(email, password, confirmPassword);
+        setFormError(errorMessage);
         if (password !== confirmPassword) {
             return null;
         }
+
         createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
                 navigate("/");
             })
             .catch((error) => {
                 const errorCode = error.code;
-                setError(errorCode);
-                console.log(errorCode);
+                const errorMessage = helperAuthErrorMessage(errorCode);
+                setFormError(errorMessage);
             });
     };
 
@@ -41,7 +48,9 @@ export default function SignUpForm() {
                 placeholder="Email or phone number"
                 onChange={(e) => setEmail(e.target.value)}
             />
-            {/* {error && <FirebaseAuthErrorMessage error={error} />} */}
+            {formError.email && (
+                <FirebaseAuthErrorMessage formError={formError.email} />
+            )}
             <input
                 type="password"
                 value={password}
@@ -49,7 +58,9 @@ export default function SignUpForm() {
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
             />
-            {/* {error && <FirebaseAuthErrorMessage error={error} />} */}
+            {formError.password && (
+                <FirebaseAuthErrorMessage formError={formError.password} />
+            )}
             <input
                 type="password"
                 value={confirmPassword}
@@ -57,7 +68,11 @@ export default function SignUpForm() {
                 placeholder="Confirm password"
                 onChange={(e) => setConfirmPassword(e.target.value)}
             />
-            {/* {error && <FirebaseAuthErrorMessage error={error} />} */}
+            {formError.confirmPassword && (
+                <FirebaseAuthErrorMessage
+                    formError={formError.confirmPassword}
+                />
+            )}
             <button type="submit" className={FormStyle.signup}>
                 Sing Up
             </button>
