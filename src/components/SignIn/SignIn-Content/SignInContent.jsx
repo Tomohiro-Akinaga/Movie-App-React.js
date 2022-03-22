@@ -1,6 +1,6 @@
-import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 import SignInContentStyle from "./SignInContent.module.scss";
-import SignInForm from "../SignIn-Form/SignInForm";
+import SignInForm from "../SignIn-Content/SignIn-Form/SignInForm";
 
 export default function SignInContent() {
     return (
@@ -9,8 +9,7 @@ export default function SignInContent() {
             <SignInForm />
             <div className={SignInContentStyle.signin}>
                 <p className={SignInContentStyle.text}>Not member yet ?</p>
-                <a className={SignInContentStyle.link}>Sign Up</a>
-                {/* <Link to="/signin">Sign In</Link> */}
+                <Link to="/signup" className={SignInContentStyle.link}>Sign Up</Link>
             </div>
         </div>
     );

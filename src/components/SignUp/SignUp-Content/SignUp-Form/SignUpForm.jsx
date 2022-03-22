@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { auth } from "../../../config/firebase-config";
+import { auth } from "../../../../config/firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import FirebaseAuthErrorMessage from "./FirebaseAuthErrorMessage/FirebaseAuthErrorMessage";
 import helperErrorCheck from "./helperErrorCheck";
