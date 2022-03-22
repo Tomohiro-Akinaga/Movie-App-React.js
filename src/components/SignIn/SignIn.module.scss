@@ -1,0 +1,36 @@
+@import "../../variables.scss";
+
+.container {
+    height: 100vh;
+    background-image: url(../../assets/signup-background.png);
+    background-size: contain;
+}
+
+.backdrop {
+    height: 100%;
+    backdrop-filter: brightness(30%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 3rem;
+    color: $netflix-logo;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 30px;
+}
+
+@media only screen and (max-width: 740px) {
+    .container {
+        background-color: #000;
+        background-image: none;
+    }
+    .logo {
+        position: inherit;
+    }
+}
