@@ -3,9 +3,16 @@ import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Popular from "./Popular/Popular";
 import TopRated from "./TopRated/TopRated";
+import NowPlaying from "./NowPlaying/NowPlaying";
 
 export default function Home() {
-    const { mainMoviesData, popularMoviesData, topRatedMoviesData } = useAPI();
+    const {
+        mainMoviesData,
+        popularMoviesData,
+        topRatedMoviesData,
+        nowPlayingMoviesData,
+    } = useAPI();
+
     return (
         <>
             <Header />
@@ -15,6 +22,9 @@ export default function Home() {
             )}
             {topRatedMoviesData && (
                 <TopRated topRatedMoviesData={topRatedMoviesData} />
+            )}
+            {nowPlayingMoviesData && (
+                <NowPlaying nowPlayingMoviesData={nowPlayingMoviesData} />
             )}
         </>
     );

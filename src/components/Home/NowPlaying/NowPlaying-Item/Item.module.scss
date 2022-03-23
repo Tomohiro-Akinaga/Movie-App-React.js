@@ -1,0 +1,14 @@
+.item {
+    list-style: none;
+    height: 200px;
+    margin-right: 5px;
+    &:hover {
+        cursor: pointer;
+        // transform: scale(1.2);
+    }
+}
+
+.poster {
+    height: 100%;
+    border-radius: 3px;
+}
