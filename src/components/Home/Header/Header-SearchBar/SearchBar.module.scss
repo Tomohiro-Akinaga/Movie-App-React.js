@@ -1,0 +1,35 @@
+.container {
+    height: 30px;
+    width: 250px;
+    display: flex;
+    border: solid 1px #fff;
+}
+
+.searchButton {
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 6px;
+    transition: all 0.2s;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.buttonIcon {
+    height: 100%;
+}
+
+.inputBox {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    &:focus {
+        text-decoration: none;
+        outline: none;
+    }
+}
