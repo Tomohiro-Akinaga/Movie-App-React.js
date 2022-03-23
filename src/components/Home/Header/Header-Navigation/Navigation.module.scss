@@ -6,10 +6,54 @@
     height: 100%;
 }
 
+.listBar {
+    display: flex;
+    list-style: none;
+}
+
+.accordion {
+    display: none;
+    align-items: center;
+    height: 30px;
+    margin-left: 10px;
+    transition: all 0.2s;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.heading {
+    line-height: 30px;
+}
+
+.triangleButton {
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+}
+
+.buttonIcon {
+    height: 100%;
+}
+
 .list {
     color: $navigation-text;
     margin: 0 10px;
     &.active {
         color: #fff;
+    }
+}
+
+@media only screen and (max-width: 910px) {
+    .accordion {
+        display: flex;
+    }
+
+    .listBar {
+        display: none;
     }
 }

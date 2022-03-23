@@ -1,0 +1,18 @@
+@import "../../../variables";
+
+.container {
+    padding: 0 20px;
+    background-color: #000;
+    height: 250px;
+}
+
+.heading {
+    font-size: 1.4rem;
+    color: $heading;
+}
+
+.popular {
+    display: flex;
+    overflow: scroll;
+    height: 200px;
+}
