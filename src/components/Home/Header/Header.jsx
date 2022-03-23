@@ -6,10 +6,14 @@ import Account from "./Header-Account/Account";
 export default function Header() {
     return (
         <header className={HeaderStyle.container}>
-            <h1 className={HeaderStyle.logo}>Movieflex</h1>
-            <Navigation />
-            <SearchBar />
-            <Account />
+            <div className={HeaderStyle.left}>
+                <h1 className={HeaderStyle.logo}>Movieflex</h1>
+                <Navigation />
+            </div>
+            <div className={HeaderStyle.right}>
+                <SearchBar />
+                <Account />
+            </div>
         </header>
     );
 }

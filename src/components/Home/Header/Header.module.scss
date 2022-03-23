@@ -5,11 +5,24 @@
     height: 70px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
 
+.left {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
     text-transform: uppercase;
     color: $netflix-logo;
     height: 100%;
+    line-height: 70px;
+    margin-right: 20px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
 }

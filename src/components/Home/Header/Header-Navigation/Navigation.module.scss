@@ -1,3 +1,15 @@
+@import "../../../../variables";
+
 .container {
     display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.list {
+    color: $navigation-text;
+    margin: 0 10px;
+    &.active {
+        color: #fff;
+    }
 }
