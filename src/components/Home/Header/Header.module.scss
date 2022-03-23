@@ -1,0 +1,15 @@
+@import "../../../variables";
+
+.container {
+    background-color: #000;
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+}
+
+.logo {
+    text-transform: uppercase;
+    color: $netflix-logo;
+    height: 100%;
+}

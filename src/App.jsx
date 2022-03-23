@@ -7,26 +7,28 @@ import useAuth from "./useAuth";
 function App() {
     const user = useAuth();
 
-    const RequireAuth = ({ children }) => {
-        if (!user) {
-            return <Navigate to="signin" />;
-        }
-        return children;
-    };
+    // const RequireAuth = ({ children }) => {
+    //     if (!user) {
+    //         return <Navigate to="signin" />;
+    //     }
+    //     return children;
+    // };
 
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="signin" element={<SignIn />}></Route>
                 <Route path="signup" element={<SignUp />}></Route>
-                <Route
+                <Route path="/" element={<Home />}></Route>
+
+                {/* <Route
                     path="/"
                     element={
                         <RequireAuth>
                             <Home />
                         </RequireAuth>
                     }
-                ></Route>
+                ></Route> */}
             </Routes>
         </BrowserRouter>
     );
