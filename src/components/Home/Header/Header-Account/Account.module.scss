@@ -1,0 +1,21 @@
+@import "../../../../variables";
+
+.accountButton {
+    height: 33px;
+    border: none;
+    // background-color: $accountButton;
+    background-color: transparent;
+    border-radius: 3px;
+    // padding: 2px;
+    transition: all 0.2s;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.buttonIcon {
+    height: 100%;
+}
