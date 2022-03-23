@@ -1,6 +1,15 @@
-import HomeStyle from "./Home.module.scss";
-import useAuth from "../../useAuth";
+import { useNavigate } from "react-router";
+import { auth } from "../../config/firebase-config";
+import { signOut } from "firebase/auth";
 
 export default function Home() {
-    return <h1 className={HomeStyle.h1}>Hello</h1>;
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        signOut(auth).then(() => {
+            navigate("signup");
+        });
+    };
+
+    return <button onClick={handleClick}>SignOut</button>;
 }
