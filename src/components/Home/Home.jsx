@@ -5,6 +5,7 @@ import Popular from "./Popular/Popular";
 import TopRated from "./TopRated/TopRated";
 import NowPlaying from "./NowPlaying/NowPlaying";
 import UpComing from "./UpComing/UpComing";
+import Trending from "./Trending/Trending";
 
 export default function Home() {
     const {
@@ -13,6 +14,7 @@ export default function Home() {
         topRatedMoviesData,
         nowPlayingMoviesData,
         upComingMoviesData,
+        trendingMoviesData,
     } = useAPI();
 
     return (
@@ -30,6 +32,9 @@ export default function Home() {
             )}
             {upComingMoviesData && (
                 <UpComing upComingMoviesData={upComingMoviesData} />
+            )}
+            {trendingMoviesData && (
+                <Trending trendingMoviesData={trendingMoviesData} />
             )}
         </>
     );

@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import TopRatedItem from "./TopRated-Item/TopRatedItem";
-import TopRatedStyle from "./TopRated.module.scss";
+import TrendingItem from "./Trending-Item/TrendingItem";
+import TrendingStyle from "./Trending.module.scss";
 
-function TopRated({ topRatedMoviesData }) {
+function Trending({ trendingMoviesData }) {
     const moviesData = [];
 
-    topRatedMoviesData.results.map((item) => {
+    trendingMoviesData.results.map((item) => {
         const object = { id: "", posterPath: "" };
         object.id = item.id;
         object.posterPath =
@@ -14,11 +14,11 @@ function TopRated({ topRatedMoviesData }) {
     });
 
     return (
-        <div className={TopRatedStyle.container}>
-            <h3 className={TopRatedStyle.heading}>Top Rated</h3>
-            <ul className={TopRatedStyle.topRated}>
+        <div className={TrendingStyle.container}>
+            <h3 className={TrendingStyle.heading}>Trending</h3>
+            <ul className={TrendingStyle.trending}>
                 {moviesData.map((item, index) => (
-                    <TopRatedItem
+                    <TrendingItem
                         key={index}
                         id={item.id}
                         posterPath={item.posterPath}
@@ -29,8 +29,8 @@ function TopRated({ topRatedMoviesData }) {
     );
 }
 
-TopRated.propTypes = {
-    topRatedMoviesData: PropTypes.object,
+Trending.propTypes = {
+    trendingMoviesData: PropTypes.object,
 };
 
-export default TopRated;
+export default Trending;

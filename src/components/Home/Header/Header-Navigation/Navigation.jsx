@@ -23,6 +23,7 @@ export default function Navigation() {
                 <li className={NavigationStyle.list}>TV Shows</li>
                 <li className={NavigationStyle.list}>Movies</li>
                 <li className={NavigationStyle.list}>New &amp; Popular</li>
+                {/* <li className={NavigationStyle.list}>Recommendation</li> */}
             </ul>
         </nav>
     );

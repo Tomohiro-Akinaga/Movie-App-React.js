@@ -1,31 +1,13 @@
 @import "../../../variables";
 
 .container {
-    padding: 30px 20px;
+    padding: 30px 60px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: #000;
 }
 
-.left {
-    width: 40%;
-    transition: all 0.2s;
-    &:hover {
-        cursor: pointer;
-        transform: scale(1.1);
-    }
-}
-
-.right {
-    width: 40%;
-    transition: all 0.2s;
-    &:hover {
-        cursor: pointer;
-        transform: scale(1.1);
-    }
-}
-
 .poster {
-    width: 100%;
+    width: 24%;
     border-radius: 3px;
 }

@@ -16,7 +16,7 @@ function NowPlaying({ nowPlayingMoviesData }) {
     return (
         <div className={NowPlayingStyle.container}>
             <h3 className={NowPlayingStyle.heading}>Now Playing</h3>
-            <ul className={NowPlayingStyle.popular}>
+            <ul className={NowPlayingStyle.nowPlaying}>
                 {moviesData.map((item, index) => (
                     <NowPlayingItem
                         key={index}
