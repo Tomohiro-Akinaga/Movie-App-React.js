@@ -3,7 +3,8 @@
     padding: 0 60px;
 }
 
-.heading {
-    font-weight: 300;
-    text-align: center;
+.itemBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

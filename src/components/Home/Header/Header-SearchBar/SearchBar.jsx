@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import PropTypes from "prop-types";
 
-function SearchBar({ setSearch }) {
+function SearchBar({ setSearch, setSearchKeyword }) {
     const navigate = useNavigate();
     const [value, setValue] = useState();
 
@@ -15,6 +15,10 @@ function SearchBar({ setSearch }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!value) {
+            return;
+        }
+        setSearchKeyword(value);
         setSearch(true);
     };
 
@@ -42,6 +46,7 @@ function SearchBar({ setSearch }) {
 
 SearchBar.propTypes = {
     setSearch: PropTypes.func,
+    setSearchKeyword: PropTypes.func,
 };
 
 export default SearchBar;

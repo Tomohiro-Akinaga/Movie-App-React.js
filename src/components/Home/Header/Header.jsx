@@ -4,7 +4,7 @@ import SearchBar from "./Header-SearchBar/SearchBar";
 import Account from "./Header-Account/Account";
 import PropTypes from "prop-types";
 
-function Header({ setSearch }) {
+function Header({ setSearch, setSearchKeyword }) {
     return (
         <header className={HeaderStyle.container}>
             <div className={HeaderStyle.left}>
@@ -17,7 +17,10 @@ function Header({ setSearch }) {
                 <Navigation />
             </div>
             <div className={HeaderStyle.right}>
-                <SearchBar setSearch={setSearch} />
+                <SearchBar
+                    setSearch={setSearch}
+                    setSearchKeyword={setSearchKeyword}
+                />
                 <Account />
             </div>
         </header>
@@ -26,6 +29,7 @@ function Header({ setSearch }) {
 
 Header.propTypes = {
     setSearch: PropTypes.func,
+    setSearchKeyword: PropTypes.func,
 };
 
 export default Header;

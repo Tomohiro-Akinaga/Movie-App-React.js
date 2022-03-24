@@ -9,9 +9,11 @@ import UpComing from "./UpComing/UpComing";
 import Trending from "./Trending/Trending";
 import SearchResult from "./SearchResult/SearchResult";
 import Footer from "./Footer/Footer";
+import HomeStyle from "./Home.module.scss";
 
 export default function Home() {
     const [search, setSearch] = useState(false);
+    const [searchKeyword, setSearchKeyword] = useState();
 
     const {
         mainMoviesData,
@@ -20,11 +22,12 @@ export default function Home() {
         nowPlayingMoviesData,
         upComingMoviesData,
         trendingMoviesData,
-    } = useAPI();
+        searchMoviesData,
+    } = useAPI(searchKeyword);
 
     return (
         <>
-            <Header setSearch={setSearch} />
+            <Header setSearch={setSearch} setSearchKeyword={setSearchKeyword} />
             {!search && (
                 <div>
                     {mainMoviesData && <Main mainMoviesData={mainMoviesData} />}
@@ -47,7 +50,16 @@ export default function Home() {
                     )}
                 </div>
             )}
-            {search && <SearchResult />}
+            {search && (
+                <div className={HomeStyle.search}>
+                    <h2 className={HomeStyle.heading}>Search result</h2>
+                    <p className={HomeStyle.keyword}>{searchKeyword}</p>
+                </div>
+            )}
+
+            {searchMoviesData && (
+                <SearchResult searchMoviesData={searchMoviesData} />
+            )}
             <Footer />
         </>
     );
