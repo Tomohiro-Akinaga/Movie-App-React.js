@@ -20,10 +20,10 @@ export default function Navigation() {
                 >
                     Home
                 </li>
-                <li className={NavigationStyle.list}>TV Shows</li>
-                <li className={NavigationStyle.list}>Movies</li>
-                <li className={NavigationStyle.list}>New &amp; Popular</li>
-                {/* <li className={NavigationStyle.list}>Recommendation</li> */}
+                <li className={NavigationStyle.list}>TV Movie</li>
+                <li className={NavigationStyle.list}>Music</li>
+                <li className={NavigationStyle.list}>Drama</li>
+                <li className={NavigationStyle.list}>Comedy</li>
             </ul>
         </nav>
     );

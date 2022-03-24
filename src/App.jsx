@@ -1,7 +1,9 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUp from "./components/SignUp/SignUp";
 import SignIn from "./components/SignIn/SignIn";
 import Home from "./components/Home/Home";
+import Detailed from "./components/Detailed/Detailed";
 import useAuth from "./useAuth";
 
 function App() {
@@ -13,18 +15,23 @@ function App() {
     //     }
     //     return children;
     // };
+    const [movieID, setMovieID] = useState();
 
     return (
         <BrowserRouter>
             <Routes>
+                <Route
+                    path="/"
+                    element={<Home setMovieID={setMovieID} />}
+                ></Route>
                 <Route path="signin" element={<SignIn />}></Route>
                 <Route path="signup" element={<SignUp />}></Route>
-                <Route path="/" element={<Home />}></Route>
+                <Route path="detailed" element={<Detailed movieID={movieID}/>}></Route>
                 {/* <Route
                     path="/"
                     element={
                         <RequireAuth>
-                            <Home />
+                            <Home user={user} />
                         </RequireAuth>
                     }
                 ></Route> */}

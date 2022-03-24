@@ -1,5 +1,6 @@
 import useAPI from "./useAPI";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Popular from "./Popular/Popular";
@@ -11,8 +12,8 @@ import SearchResult from "./SearchResult/SearchResult";
 import Footer from "./Footer/Footer";
 import HomeStyle from "./Home.module.scss";
 
-export default function Home() {
-    const [search, setSearch] = useState(false);
+function Home({ setMovieID }) {
+    const [search, setSearch] = useState();
     const [searchKeyword, setSearchKeyword] = useState();
 
     const {
@@ -30,7 +31,12 @@ export default function Home() {
             <Header setSearch={setSearch} setSearchKeyword={setSearchKeyword} />
             {!search && (
                 <div>
-                    {mainMoviesData && <Main mainMoviesData={mainMoviesData} />}
+                    {mainMoviesData && (
+                        <Main
+                            mainMoviesData={mainMoviesData}
+                            setMovieID={setMovieID}
+                        />
+                    )}
                     {popularMoviesData && (
                         <Popular popularMoviesData={popularMoviesData} />
                     )}
@@ -64,3 +70,9 @@ export default function Home() {
         </>
     );
 }
+
+Home.propTypes = {
+    setMovieID: PropTypes.func,
+};
+
+export default Home;
