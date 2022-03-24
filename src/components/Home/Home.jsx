@@ -6,6 +6,7 @@ import TopRated from "./TopRated/TopRated";
 import NowPlaying from "./NowPlaying/NowPlaying";
 import UpComing from "./UpComing/UpComing";
 import Trending from "./Trending/Trending";
+import Footer from "./Footer/Footer";
 
 export default function Home() {
     const {
@@ -36,6 +37,7 @@ export default function Home() {
             {trendingMoviesData && (
                 <Trending trendingMoviesData={trendingMoviesData} />
             )}
+            <Footer />
         </>
     );
 }
