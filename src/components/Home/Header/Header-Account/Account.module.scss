@@ -1,12 +1,15 @@
 @import "../../../../variables";
 
+.container {
+    position: relative;
+    display: flex;
+}
+
 .accountButton {
     height: 33px;
     border: none;
-    // background-color: $accountButton;
     background-color: transparent;
     border-radius: 3px;
-    // padding: 2px;
     transition: all 0.2s;
     &:hover {
         cursor: pointer;

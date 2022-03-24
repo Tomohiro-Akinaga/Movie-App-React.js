@@ -19,8 +19,9 @@ function SearchResult({ searchMoviesData }) {
     return (
         <div className={SearchResultStyle.container}>
             <ul className={SearchResultStyle.itemBox}>
-                {moviesData.map((item) => (
+                {moviesData.map((item, index) => (
                     <SearchResultItem
+                        key={index}
                         id={item.id}
                         posterPath={item.posterPath}
                     />
