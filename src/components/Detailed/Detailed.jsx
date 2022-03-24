@@ -3,6 +3,8 @@ import useAPI from "./useAPI";
 import Loading from "../Loading/Loading";
 import Header from "../Home/Header/Header";
 import DetailedMovieContent from "./DetailedMovieContent/DetailedMovieContent";
+import Footer from "../Home/Footer/Footer";
+import DetailedStyle from "./Detailed.module.scss";
 
 function Detailed({ movieID }) {
     const detailedMovie = useAPI(movieID);
@@ -11,7 +13,8 @@ function Detailed({ movieID }) {
         <>
             {!movieID && <Loading />}
             <Header />
-            {movieID && <DetailedMovieContent />}
+            {movieID && <DetailedMovieContent detailedMovie={detailedMovie} />}
+            <Footer />
         </>
     );
 }

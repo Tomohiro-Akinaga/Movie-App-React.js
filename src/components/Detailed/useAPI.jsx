@@ -12,7 +12,5 @@ export default function useAPI(movieID) {
         })();
     }, [movieID]);
 
-    return {
-        detailedMoviesData,
-    };
+    return detailedMoviesData;
 }

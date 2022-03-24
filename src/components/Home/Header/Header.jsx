@@ -1,5 +1,6 @@
 import HeaderStyle from "./Header.module.scss";
 import { useNavigate } from "react-router";
+import Navigation from "./Header-Navigation/Navigation";
 import SearchBar from "./Header-SearchBar/SearchBar";
 import Account from "./Header-Account/Account";
 import PropTypes from "prop-types";
@@ -12,6 +13,7 @@ function Header({ setSearch, setSearchKeyword }) {
                 <h1 className={HeaderStyle.logo} onClick={() => navigate("/")}>
                     Movieflex
                 </h1>
+                <Navigation />
             </div>
             <div className={HeaderStyle.right}>
                 <SearchBar
