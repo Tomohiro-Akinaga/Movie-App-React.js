@@ -20,7 +20,6 @@ function App() {
                 <Route path="signin" element={<SignIn />}></Route>
                 <Route path="signup" element={<SignUp />}></Route>
                 <Route path="/" element={<Home />}></Route>
-
                 {/* <Route
                     path="/"
                     element={
