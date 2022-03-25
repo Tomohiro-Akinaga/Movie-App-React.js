@@ -2,11 +2,9 @@ import SearchBarStyle from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import PropTypes from "prop-types";
 
-function SearchBar({ setSearch, setSearchKeyword }) {
-    const navigate = useNavigate();
+function SearchBar({ setSearchKeyword, setSearch }) {
     const [value, setValue] = useState();
 
     const handleChange = (e) => {
@@ -18,8 +16,8 @@ function SearchBar({ setSearch, setSearchKeyword }) {
         if (!value) {
             return;
         }
-        setSearchKeyword(value);
         setSearch(true);
+        setSearchKeyword(value);
     };
 
     return (

@@ -19,6 +19,7 @@ function App() {
 
     const [movieID, setMovieID] = useState();
     const [searchKeyword, setSearchKeyword] = useState();
+
     return (
         <BrowserRouter>
             <Routes>
@@ -37,10 +38,6 @@ function App() {
                 <Route
                     path="detailed"
                     element={<Detailed movieID={movieID} />}
-                ></Route>
-                <Route
-                    path="searced"
-                    element={<SearchResult searchKeyword={searchKeyword} />}
                 ></Route>
 
                 {/* <Route

@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import detailedMovieAPI from "../../api/detailedMovieAPI";
+import searchMovieAPI from "../../api/searchMovieAPI";
 
-export default function useAPI(movieID) {
-    const [detailedMoviesData, setDetailedMoviesData] = useState();
+export default function useAPI(searchKeyword) {
+    const [searchMoviesData, setSearchMoviesData] = useState();
 
     useEffect(() => {
         (async () => {
-            const fetchDetailedMoviesData = await detailedMovieAPI(movieID);
+            const fetchSearchMoviesData = await searchMovieAPI(searchKeyword);
 
-            setDetailedMoviesData(fetchDetailedMoviesData);
+            setSearchMoviesData(fetchSearchMoviesData);
         })();
-    }, [movieID]);
+    }, [searchKeyword]);
 
-    return detailedMoviesData;
+    return searchMoviesData;
 }

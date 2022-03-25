@@ -9,8 +9,11 @@ import UpComing from "./UpComing/UpComing";
 import Trending from "./Trending/Trending";
 import Footer from "./Footer/Footer";
 import Loading from "../Loading/Loading";
+import { useState } from "react";
 
 function Home({ setMovieID, setSearchKeyword }) {
+    const [search, setSearch] = useState(false);
+    console.log(search);
     const {
         mainMoviesData,
         popularMoviesData,
@@ -19,28 +22,37 @@ function Home({ setMovieID, setSearchKeyword }) {
         upComingMoviesData,
         trendingMoviesData,
     } = useAPI();
-
+    
     return (
         <>
             {!trendingMoviesData && <Loading />}
-            <Header setSearchKeyword={setSearchKeyword} />
-            {mainMoviesData && (
-                <Main mainMoviesData={mainMoviesData} setMovieID={setMovieID} />
-            )}
-            {popularMoviesData && (
-                <Popular popularMoviesData={popularMoviesData} />
-            )}
-            {topRatedMoviesData && (
-                <TopRated topRatedMoviesData={topRatedMoviesData} />
-            )}
-            {nowPlayingMoviesData && (
-                <NowPlaying nowPlayingMoviesData={nowPlayingMoviesData} />
-            )}
-            {upComingMoviesData && (
-                <UpComing upComingMoviesData={upComingMoviesData} />
-            )}
-            {trendingMoviesData && (
-                <Trending trendingMoviesData={trendingMoviesData} />
+            <Header setSearch={setSearch} setSearchKeyword={setSearchKeyword} />
+            {!search && (
+                <>
+                    {mainMoviesData && (
+                        <Main
+                            mainMoviesData={mainMoviesData}
+                            setMovieID={setMovieID}
+                        />
+                    )}
+                    {popularMoviesData && (
+                        <Popular popularMoviesData={popularMoviesData} />
+                    )}
+                    {topRatedMoviesData && (
+                        <TopRated topRatedMoviesData={topRatedMoviesData} />
+                    )}
+                    {nowPlayingMoviesData && (
+                        <NowPlaying
+                            nowPlayingMoviesData={nowPlayingMoviesData}
+                        />
+                    )}
+                    {upComingMoviesData && (
+                        <UpComing upComingMoviesData={upComingMoviesData} />
+                    )}
+                    {trendingMoviesData && (
+                        <Trending trendingMoviesData={trendingMoviesData} />
+                    )}
+                </>
             )}
             <Footer />
         </>
