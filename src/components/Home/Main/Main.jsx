@@ -27,9 +27,8 @@ function Main({ mainMoviesData, setMovieID }) {
         <main className={MainStyle.container}>
             <ul className={MainStyle.itemBox}>
                 {mainMoviesPoster.map((item, index) => (
-                    <li className={MainStyle.item}>
+                    <li className={MainStyle.item} key={index}>
                         <img
-                            key={index}
                             src={item.posterPath}
                             id={item.id}
                             className={MainStyle.poster}

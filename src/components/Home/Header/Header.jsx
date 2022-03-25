@@ -5,7 +5,7 @@ import SearchBar from "./Header-SearchBar/SearchBar";
 import Account from "./Header-Account/Account";
 import PropTypes from "prop-types";
 
-function Header({ setSearch, setSearchKeyword }) {
+function Header({ setSearchKeyword }) {
     const navigate = useNavigate();
     return (
         <header className={HeaderStyle.container}>
@@ -17,7 +17,6 @@ function Header({ setSearch, setSearchKeyword }) {
             </div>
             <div className={HeaderStyle.right}>
                 <SearchBar
-                    setSearch={setSearch}
                     setSearchKeyword={setSearchKeyword}
                 />
                 <Account />

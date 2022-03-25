@@ -5,6 +5,7 @@ import SignIn from "./components/SignIn/SignIn";
 import Home from "./components/Home/Home";
 import Detailed from "./components/Detailed/Detailed";
 import useAuth from "./useAuth";
+import SearchResult from "./components/SearchResult/SearchResult";
 
 function App() {
     const user = useAuth();
@@ -15,18 +16,33 @@ function App() {
     //     }
     //     return children;
     // };
-    const [movieID, setMovieID] = useState();
 
+    const [movieID, setMovieID] = useState();
+    const [searchKeyword, setSearchKeyword] = useState();
     return (
         <BrowserRouter>
             <Routes>
                 <Route
                     path="/"
-                    element={<Home setMovieID={setMovieID} />}
+                    element={
+                        <Home
+                            setMovieID={setMovieID}
+                            searchKeyword={searchKeyword}
+                            setSearchKeyword={setSearchKeyword}
+                        />
+                    }
                 ></Route>
                 <Route path="signin" element={<SignIn />}></Route>
                 <Route path="signup" element={<SignUp />}></Route>
-                <Route path="detailed" element={<Detailed movieID={movieID}/>}></Route>
+                <Route
+                    path="detailed"
+                    element={<Detailed movieID={movieID} />}
+                ></Route>
+                <Route
+                    path="searced"
+                    element={<SearchResult searchKeyword={searchKeyword} />}
+                ></Route>
+
                 {/* <Route
                     path="/"
                     element={
