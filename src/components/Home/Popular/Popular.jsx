@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import PopularItem from "./Popular-Item/PopularItem";
 import PopularStyle from "./Popular.module.scss";
 
-function Popular({ popularMoviesData }) {
+function Popular({ popularMoviesData, setDetailed, setMovieID }) {
     const moviesData = [];
 
     popularMoviesData.results.map((item) => {
@@ -22,6 +22,8 @@ function Popular({ popularMoviesData }) {
                         key={index}
                         id={item.id}
                         posterPath={item.posterPath}
+                        setDetailed={setDetailed}
+                        setMovieID={setMovieID}
                     />
                 ))}
             </ul>

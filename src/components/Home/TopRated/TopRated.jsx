@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import TopRatedItem from "./TopRated-Item/TopRatedItem";
 import TopRatedStyle from "./TopRated.module.scss";
 
-function TopRated({ topRatedMoviesData }) {
+function TopRated({ topRatedMoviesData, setDetailed, setMovieID }) {
     const moviesData = [];
 
     topRatedMoviesData.results.map((item) => {
@@ -22,6 +22,8 @@ function TopRated({ topRatedMoviesData }) {
                         key={index}
                         id={item.id}
                         posterPath={item.posterPath}
+                        setDetailed={setDetailed}
+                        setMovieID={setMovieID}
                     />
                 ))}
             </ul>

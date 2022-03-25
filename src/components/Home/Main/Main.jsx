@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import MainStyle from "./Main.module.scss";
 
-function Main({ mainMoviesData, setMovieID }) {
+function Main({ mainMoviesData, setMovieID, setDetailed }) {
     const randomNumber = Math.floor(Math.random() * 10);
     const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -17,6 +17,7 @@ function Main({ mainMoviesData, setMovieID }) {
 
     const handleClick = (e) => {
         setMovieID(e.target.id);
+        setDetailed(true);
     };
 
     return (

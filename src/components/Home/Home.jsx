@@ -36,13 +36,22 @@ function Home({ movieID, setMovieID, setSearchKeyword, searchKeyword }) {
                         <Main
                             mainMoviesData={mainMoviesData}
                             setMovieID={setMovieID}
+                            setDetailed={setDetailed}
                         />
                     )}
                     {popularMoviesData && (
-                        <Popular popularMoviesData={popularMoviesData} />
+                        <Popular
+                            popularMoviesData={popularMoviesData}
+                            setMovieID={setMovieID}
+                            setDetailed={setDetailed}
+                        />
                     )}
                     {topRatedMoviesData && (
-                        <TopRated topRatedMoviesData={topRatedMoviesData} />
+                        <TopRated
+                            topRatedMoviesData={topRatedMoviesData}
+                            setMovieID={setMovieID}
+                            setDetailed={setDetailed}
+                        />
                     )}
                     {nowPlayingMoviesData && (
                         <NowPlaying

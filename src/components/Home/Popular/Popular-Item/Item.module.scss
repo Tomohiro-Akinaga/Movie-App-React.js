@@ -2,9 +2,10 @@
     list-style: none;
     height: 200px;
     margin-right: 5px;
+    transition: all 0.2s;
     &:hover {
         cursor: pointer;
-        // transform: scale(1.2);
+        transform: scale(1.2);
     }
 }
 
