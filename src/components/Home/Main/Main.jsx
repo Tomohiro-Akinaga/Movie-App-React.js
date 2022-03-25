@@ -1,10 +1,7 @@
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router";
 import MainStyle from "./Main.module.scss";
 
 function Main({ mainMoviesData, setMovieID }) {
-    const navigate = useNavigate();
-
     const randomNumber = Math.floor(Math.random() * 10);
     const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -20,7 +17,6 @@ function Main({ mainMoviesData, setMovieID }) {
 
     const handleClick = (e) => {
         setMovieID(e.target.id);
-        navigate("detailed");
     };
 
     return (

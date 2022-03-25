@@ -19,7 +19,7 @@ function App() {
 
     const [movieID, setMovieID] = useState();
     const [searchKeyword, setSearchKeyword] = useState();
-
+    
     return (
         <BrowserRouter>
             <Routes>
@@ -27,6 +27,7 @@ function App() {
                     path="/"
                     element={
                         <Home
+                            movieID={movieID}
                             setMovieID={setMovieID}
                             searchKeyword={searchKeyword}
                             setSearchKeyword={setSearchKeyword}
@@ -35,11 +36,6 @@ function App() {
                 ></Route>
                 <Route path="signin" element={<SignIn />}></Route>
                 <Route path="signup" element={<SignUp />}></Route>
-                <Route
-                    path="detailed"
-                    element={<Detailed movieID={movieID} />}
-                ></Route>
-
                 {/* <Route
                     path="/"
                     element={

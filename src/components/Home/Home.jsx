@@ -7,13 +7,16 @@ import TopRated from "./TopRated/TopRated";
 import NowPlaying from "./NowPlaying/NowPlaying";
 import UpComing from "./UpComing/UpComing";
 import Trending from "./Trending/Trending";
+import SearchResult from "../SearchResult/SearchResult";
 import Footer from "./Footer/Footer";
 import Loading from "../Loading/Loading";
 import { useState } from "react";
+import Detailed from "../Detailed/Detailed";
 
-function Home({ setMovieID, setSearchKeyword }) {
+function Home({ movieID, setMovieID, setSearchKeyword, searchKeyword }) {
     const [search, setSearch] = useState(false);
-    console.log(search);
+    const [detailed, setDetailed] = useState(false);
+
     const {
         mainMoviesData,
         popularMoviesData,
@@ -22,12 +25,12 @@ function Home({ setMovieID, setSearchKeyword }) {
         upComingMoviesData,
         trendingMoviesData,
     } = useAPI();
-    
+
     return (
         <>
             {!trendingMoviesData && <Loading />}
             <Header setSearch={setSearch} setSearchKeyword={setSearchKeyword} />
-            {!search && (
+            {!search && !detailed && (
                 <>
                     {mainMoviesData && (
                         <Main
@@ -54,6 +57,15 @@ function Home({ setMovieID, setSearchKeyword }) {
                     )}
                 </>
             )}
+            {search && !detailed && (
+                <SearchResult
+                    searchKeyword={searchKeyword}
+                    setMovieID={setMovieID}
+                    setDetailed={setDetailed}
+                    setSearch={setSearch}
+                />
+            )}
+            {!search && detailed && <Detailed movieID={movieID} />}
             <Footer />
         </>
     );

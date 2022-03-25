@@ -1,9 +1,25 @@
 import PropTypes from "prop-types";
 import ItemStyle from "./Item.module.scss";
 
-function PopularItem({ index, id, posterPath }) {
+function PopularItem({
+    index,
+    id,
+    posterPath,
+    setMovieID,
+    setDetailed,
+    setSearch,
+}) {
     return (
-        <li key={index} id={id} className={ItemStyle.item}>
+        <li
+            key={index}
+            id={id}
+            className={ItemStyle.item}
+            onClick={() => {
+                setMovieID(id);
+                setDetailed(true);
+                setSearch(false)
+            }}
+        >
             <img src={posterPath} className={ItemStyle.poster} />
         </li>
     );
