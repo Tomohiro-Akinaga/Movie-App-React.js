@@ -25,15 +25,19 @@ function Main({ mainMoviesData, setMovieID }) {
 
     return (
         <main className={MainStyle.container}>
-            {mainMoviesPoster.map((item, index) => (
-                <img
-                    key={index}
-                    src={item.posterPath}
-                    id={item.id}
-                    className={MainStyle.poster}
-                    onClick={handleClick}
-                />
-            ))}
+            <ul className={MainStyle.itemBox}>
+                {mainMoviesPoster.map((item, index) => (
+                    <li className={MainStyle.item}>
+                        <img
+                            key={index}
+                            src={item.posterPath}
+                            id={item.id}
+                            className={MainStyle.poster}
+                            onClick={handleClick}
+                        />
+                    </li>
+                ))}
+            </ul>
         </main>
     );
 }

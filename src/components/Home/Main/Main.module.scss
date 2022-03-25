@@ -3,12 +3,23 @@
 .container {
     padding: 30px 60px;
     display: flex;
-    justify-content: space-between;
     background-color: #000;
 }
 
+.itemBox {
+    height: 650px;
+    display: flex;
+    overflow: scroll;
+}
+
+.item {
+    height: 600px;
+    padding: 10px;
+    list-style: none;
+}
+
 .poster {
-    width: 24%;
+    height: 100%;
     border-radius: 3px;
     &:hover {
         cursor: pointer;

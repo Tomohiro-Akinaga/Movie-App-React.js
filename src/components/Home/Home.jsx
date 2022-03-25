@@ -10,6 +10,7 @@ import UpComing from "./UpComing/UpComing";
 import Trending from "./Trending/Trending";
 import SearchResult from "./SearchResult/SearchResult";
 import Footer from "./Footer/Footer";
+import Loading from "../Loading/Loading";
 import HomeStyle from "./Home.module.scss";
 
 function Home({ setMovieID }) {
@@ -28,9 +29,10 @@ function Home({ setMovieID }) {
 
     return (
         <>
+            {!trendingMoviesData && <Loading />}
             <Header setSearch={setSearch} setSearchKeyword={setSearchKeyword} />
             {!search && (
-                <div>
+                <>
                     {mainMoviesData && (
                         <Main
                             mainMoviesData={mainMoviesData}
@@ -54,7 +56,7 @@ function Home({ setMovieID }) {
                     {trendingMoviesData && (
                         <Trending trendingMoviesData={trendingMoviesData} />
                     )}
-                </div>
+                </>
             )}
             {search && (
                 <div className={HomeStyle.search}>

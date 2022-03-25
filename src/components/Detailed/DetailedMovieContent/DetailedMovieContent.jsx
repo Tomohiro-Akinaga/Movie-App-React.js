@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import ContentStyle from "./Content.module.scss";
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
@@ -19,7 +20,8 @@ function DetailedMovieContent({ detailedMovie }) {
     };
 
     const genresData = moviesData.genres;
-    console.log(detailedMovie);
+    const link = moviesData.homepage;
+
     return (
         <div className={ContentStyle.container}>
             <img src={moviesData.poster_path} className={ContentStyle.poster} />
@@ -46,7 +48,9 @@ function DetailedMovieContent({ detailedMovie }) {
                         ))}
                     </div>
                 </div>
-                <a className={ContentStyle.link}>{moviesData.homepage}</a>
+                <a href={moviesData.homepage} className={ContentStyle.link}>
+                    {moviesData.homepage}
+                </a>
             </div>
         </div>
     );
