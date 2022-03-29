@@ -1,25 +1,21 @@
-import PropTypes from "prop-types";
+import { useLocation } from "react-router";
 import useAPI from "./useAPI";
-import { useNavigate } from "react-router";
-import Loading from "../Loading/Loading";
-import Header from "../Top/Header/Header";
+import Header from "../../components/Header/Header";
 import DetailedMovieContent from "./DetailedMovieContent/DetailedMovieContent";
 import Footer from "../../components/Footer/Footer";
 
-function Detailed({ movieID }) {
-    const detailedMovie = useAPI(movieID);
-
+function Detailed() {
+    const location = useLocation();
+    const movieID = location.state;
+    const movieData = useAPI(movieID);
 
     return (
         <>
-            {!movieID && <Loading />}
-            {movieID && <DetailedMovieContent detailedMovie={detailedMovie} />}
+            <Header />
+            {movieData && <DetailedMovieContent movieData={movieData} />}
+            <Footer />
         </>
     );
 }
-
-Detailed.propTypes = {
-    movieID: PropTypes.string,
-};
 
 export default Detailed;

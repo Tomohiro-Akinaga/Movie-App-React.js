@@ -11,6 +11,5 @@ export default function useAPI(movieID) {
             setDetailedMoviesData(fetchDetailedMoviesData);
         })();
     }, [movieID]);
-
     return detailedMoviesData;
 }

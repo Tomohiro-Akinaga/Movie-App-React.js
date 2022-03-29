@@ -1,63 +1,52 @@
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import ContentStyle from "./Content.module.scss";
+import { useNavigate } from "react-router-dom";
+import styles from "./DetailedMovieContent.module.scss";
+import closeImg from "../../../assets/close.png";
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
-function DetailedMovieContent({ detailedMovie }) {
-    if (!detailedMovie) {
-        return null;
-    }
+function DetailedMovieContent({ movieData }) {
+    const navigate = useNavigate();
     const moviesData = {
-        id: detailedMovie.id,
-        title: detailedMovie.title,
-        description: detailedMovie.overview,
-        poster_path: IMAGE_URL + detailedMovie.poster_path,
-        backdrop_path: IMAGE_URL + detailedMovie.backdrop_path,
-        release_date: detailedMovie.release_date,
-        genres: detailedMovie.genres,
-        homepage: detailedMovie.homepage,
+        id: movieData.id,
+        title: movieData.title,
+        description: movieData.overview,
+        poster_path: IMAGE_URL + movieData.poster_path,
+        backdrop_path: IMAGE_URL + movieData.backdrop_path,
+        release_date: movieData.release_date,
+        genres: movieData.genres,
+        homepage: movieData.homepage,
     };
-
-    const genresData = moviesData.genres;
-    const link = moviesData.homepage;
+    const genresData = movieData.genres;
 
     return (
-        <div className={ContentStyle.container}>
-            <img src={moviesData.poster_path} className={ContentStyle.poster} />
-            <div className={ContentStyle.titleBox}>
-                <h1 className={ContentStyle.title}>{moviesData.title}</h1>
-                <h2 className={ContentStyle.description}>
-                    {moviesData.description}
-                </h2>
-                <div className={ContentStyle.information}>
-                    <div className={ContentStyle.release}>
-                        <h3 className={ContentStyle.subHeading}>
-                            Release date
-                        </h3>
-                        <p className={ContentStyle.text}>
-                            {moviesData.release_date}
-                        </p>
+        <div className={styles.container}>
+            <img src={moviesData.poster_path} className={styles.poster} />
+            <div className={styles.titleBox}>
+                <h1 className={styles.title}>{moviesData.title}</h1>
+                <h2 className={styles.description}>{moviesData.description}</h2>
+                <div className={styles.information}>
+                    <div className={styles.release}>
+                        <h3 className={styles.subHeading}>Release date</h3>
+                        <p className={styles.text}>{moviesData.release_date}</p>
                     </div>
-                    <div className={ContentStyle.genre}>
-                        <h3 className={ContentStyle.subHeading}>Genre</h3>
+                    <div className={styles.genre}>
+                        <h3 className={styles.subHeading}>Genre</h3>
                         {genresData.map((item, index) => (
-                            <p key={index} className={ContentStyle.text}>
+                            <p key={index} className={styles.text}>
                                 {item.name}
                             </p>
                         ))}
                     </div>
                 </div>
-                <a href={moviesData.homepage} className={ContentStyle.link}>
+                <a href={moviesData.homepage} className={styles.link}>
                     {moviesData.homepage}
                 </a>
             </div>
+            <button className={styles.goBack} onClick={() => navigate(-1)}>
+                <img className={styles.goBackImg} src={closeImg} />
+            </button>
         </div>
     );
 }
-
-DetailedMovieContent.propTypes = {
-    detailedMovie: PropTypes.object,
-};
 
 export default DetailedMovieContent;

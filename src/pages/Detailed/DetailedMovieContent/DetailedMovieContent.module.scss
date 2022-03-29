@@ -1,5 +1,5 @@
 .container {
-    height: 66vh;
+    min-height: 80vh;
     overflow: hidden;
     padding: 2vh 60px;
     background-color: rgb(24, 24, 24);
@@ -20,10 +20,6 @@
     align-items: center;
     justify-content: space-evenly;
 }
-
-// .title {
-//     font-weight: 300;
-// }
 
 .description {
     font-size: 1.3rem;
@@ -47,4 +43,20 @@
 .link {
     font-weight: 300;
     border: none;
+}
+
+.goBack {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 7px;
+    background-color: transparent;
+    border: solid 1px #fff;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.goBackImg {
+    height: 100%;
 }
