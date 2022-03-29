@@ -1,7 +1,7 @@
 import SearchResultStyle from "./SearchResult.module.scss";
 import PropTypes from "prop-types";
 import SearchResultItem from "./SearchResult-Item/SearchResultItem";
-import Loading from "../../components/Loading/Loading";
+import Loading from "../Loading/Loading";
 import { useState } from "react";
 import { useEffect } from "react";
 import useAPI from "./useAPI";

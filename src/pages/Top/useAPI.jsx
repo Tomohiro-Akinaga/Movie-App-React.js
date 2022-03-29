@@ -5,18 +5,18 @@ import topRatedMovieAPI from "../../api/topRatedMovieAPI";
 import nowPlayingMovieAPI from "../../api/nowPlayingMovieAPI";
 import upComingMovieAPI from "../../api/upComingMovieAPI";
 import trendingMovieAPI from "../../api/trendingMovieAPI";
-import searchMovieAPI from "../../api/searchMovieAPI";
 
-export default function useAPI(searchKeyword) {
+export default function useAPI() {
     const [mainMoviesData, setMainMoviesData] = useState();
     const [popularMoviesData, setPopularMoviesData] = useState();
     const [topRatedMoviesData, setTopRatedMoviesData] = useState();
     const [nowPlayingMoviesData, setNowPlayingMoviesData] = useState();
     const [upComingMoviesData, setUpComingMoviesData] = useState();
     const [trendingMoviesData, setUpTrendingMoviesData] = useState();
-    const [searchMoviesData, setSearchMoviesData] = useState();
 
     useEffect(() => {
+        let unmounted = false;
+
         (async () => {
             const fetchMainMoviesData = await mainMovieAPI();
             const fetchPopularMoviesData = await popularMovieAPI();
@@ -24,17 +24,19 @@ export default function useAPI(searchKeyword) {
             const fetchNowplayingMovieData = await nowPlayingMovieAPI();
             const fetchUpComingMovieData = await upComingMovieAPI();
             const fetchTrendingMovieData = await trendingMovieAPI();
-            const fetchSearchMovieData = await searchMovieAPI(searchKeyword);
-
-            setMainMoviesData(fetchMainMoviesData);
-            setPopularMoviesData(fetchPopularMoviesData);
-            setTopRatedMoviesData(fetchTopRatedMoviesData);
-            setNowPlayingMoviesData(fetchNowplayingMovieData);
-            setUpComingMoviesData(fetchUpComingMovieData);
-            setUpTrendingMoviesData(fetchTrendingMovieData);
-            setSearchMoviesData(fetchSearchMovieData);
+            if (!unmounted) {
+                setMainMoviesData(fetchMainMoviesData);
+                setPopularMoviesData(fetchPopularMoviesData);
+                setTopRatedMoviesData(fetchTopRatedMoviesData);
+                setNowPlayingMoviesData(fetchNowplayingMovieData);
+                setUpComingMoviesData(fetchUpComingMovieData);
+                setUpTrendingMoviesData(fetchTrendingMovieData);
+            }
         })();
-    }, [searchKeyword]);
+        return () => {
+            unmounted = true;
+        };
+    }, []);
 
     return {
         mainMoviesData,
@@ -43,6 +45,5 @@ export default function useAPI(searchKeyword) {
         nowPlayingMoviesData,
         upComingMoviesData,
         trendingMoviesData,
-        searchMoviesData,
     };
 }

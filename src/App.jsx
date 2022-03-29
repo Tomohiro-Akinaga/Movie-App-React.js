@@ -1,51 +1,43 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignUp from "./components/SignUp/SignUp";
-import SignIn from "./components/SignIn/SignIn";
-import Home from "./components/Home/Home";
-import Detailed from "./components/Detailed/Detailed";
-import useAuth from "./useAuth";
-import SearchResult from "./components/SearchResult/SearchResult";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { auth } from "./config/firebase-config";
+import { onAuthStateChanged } from "firebase/auth";
+import Top from "./pages/Top/Top";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 
 function App() {
-    const user = useAuth();
+    const [loginUser, setLoginUser] = useState();
+    const [loading, setLoading] = useState(true);
 
-    // const RequireAuth = ({ children }) => {
-    //     if (!user) {
-    //         return <Navigate to="signin" />;
-    //     }
-    //     return children;
-    // };
-
-    const [movieID, setMovieID] = useState();
-    const [searchKeyword, setSearchKeyword] = useState();
+    function RequireAuth({ children }) {
+        useEffect(() => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    setLoginUser(user);
+                    setLoading(false);
+                } else {
+                    setLoading(true);
+                }
+            });
+        }, []);
+        return children;
+    }
 
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/top" element={<Top />}></Route>
+                <Route path="/signin" element={<SignIn />}></Route>
+                <Route path="/signup" element={<SignUp />}></Route>
                 <Route
                     path="/"
                     element={
-                        <Home
-                            movieID={movieID}
-                            setMovieID={setMovieID}
-                            searchKeyword={searchKeyword}
-                            setSearchKeyword={setSearchKeyword}
-                        />
-                    }
-                ></Route>
-                <Route path="signin" element={<SignIn />}></Route>
-                <Route path="signup" element={<SignUp />}></Route>
-
-                
-                {/* <Route
-                    path="/"
-                    element={
                         <RequireAuth>
-                            <Home user={user} />
+                            <Top loading={loading} loginUser={loginUser} />
                         </RequireAuth>
                     }
-                ></Route> */}
+                ></Route>
             </Routes>
         </BrowserRouter>
     );

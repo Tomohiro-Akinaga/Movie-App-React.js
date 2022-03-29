@@ -1,12 +1,12 @@
-import FooterStyle from "./Footer.module.scss";
+import styles from "./Footer.module.scss";
 
 export default function Footer() {
-    const list = ["GitHub", "Blog", "LinkedIn", "YouTube"];
+    const list = ["GitHub", "LinkedIn", "Blog", "YouTube"];
     return (
         <footer>
-            <ul className={FooterStyle.container}>
+            <ul className={styles.container}>
                 {list.map((item, index) => (
-                    <li key={index} className={FooterStyle.link}>
+                    <li key={index} className={styles.link}>
                         {item}
                     </li>
                 ))}
