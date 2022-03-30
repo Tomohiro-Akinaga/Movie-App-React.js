@@ -6,7 +6,6 @@ import AccountInformation from "./Information/AccountInformation";
 
 export default function Account() {
     const [accountInfo, setAccountInfo] = useState(false);
-
     return (
         <div className={styles.container}>
             <button
