@@ -1,13 +1,21 @@
 import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import useAPI from "./useAPI";
 import Header from "../../components/Header/Header";
 import SearchResultBox from "./SearchResult-Box/SearchResultBox";
 import Footer from "../../components/Footer/Footer";
+import Loading from "../../components/Loading/Loading";
 
 function SearchResult() {
+    const [loading, setLoading] = useState();
+
     const location = useLocation();
     const searchKeyword = location.state;
     const searchMoviesData = useAPI(searchKeyword);
+
+    useEffect(() => {
+        searchMoviesData && setLoading(false);
+    }, [searchMoviesData]);
 
     const moviesData = [];
 
@@ -28,6 +36,7 @@ function SearchResult() {
 
     return (
         <>
+            {loading && <Loading />}
             <Header />
             <SearchResultBox
                 moviesData={moviesData}

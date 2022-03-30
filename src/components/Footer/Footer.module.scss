@@ -12,10 +12,10 @@
 
 .link {
     text-decoration: none;
-    width: 5vw;
+    width: 100px;
     color: $list;
     text-align: center;
-    font-size: 1.2vw;
+    font-size: 1rem;
     font-weight: 300;
     border: solid 1px $list;
     padding: 3px 20px;
@@ -32,10 +32,5 @@
         height: 30vh;
         flex-direction: column;
         justify-content: space-evenly;
-    }
-    .link {
-        width: 10vw;
-        font-size: 2vw;
-        font-weight: 400;
     }
 }

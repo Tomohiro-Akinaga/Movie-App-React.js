@@ -1,7 +1,7 @@
 .container {
     position: relative;
     min-height: 80vh;
-    padding: 10px 60px;
+    padding: 60px;
     background-color: rgb(24, 24, 24);
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@
 }
 
 .posterBox {
-    width: 25%;
+    width: 340px;
 }
 
 .poster {
@@ -19,7 +19,7 @@
 
 .titleBox {
     width: 50%;
-    padding-left: 60px;
+    min-height: 80vh;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -27,15 +27,23 @@
     justify-content: space-evenly;
 }
 
+.title {
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
 .description {
     font-size: 1.3rem;
     font-weight: 300;
+    margin-bottom: 40px;
 }
 
 .information {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .subHeading {
@@ -53,8 +61,8 @@
 
 .goBack {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 60px;
+    right: 60px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -68,4 +76,44 @@
 
 .goBackImg {
     height: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .posterBox {
+        margin: 40px 0;
+    }
+
+    .titleBox {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .subHeading {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    .text {
+        font-size: 1.2rem;
+    }
+
+    .goBack {
+        top: 10px;
+        right: 10px;
+    }
+
+    .link {
+        text-align: center;
+        width: 100%;
+        word-wrap: break-word;
+    }
 }

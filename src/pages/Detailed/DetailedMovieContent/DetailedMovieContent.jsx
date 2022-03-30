@@ -6,6 +6,7 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 function DetailedMovieContent({ movieData }) {
     const navigate = useNavigate();
+
     const moviesData = {
         id: movieData.id,
         title: movieData.title,
@@ -25,13 +26,7 @@ function DetailedMovieContent({ movieData }) {
             </div>
             <div className={styles.titleBox}>
                 <h1 className={styles.title}>{moviesData.title}</h1>
-            </div>
-            {/* <div className={styles.posterBox}>
-                <img src={moviesData.poster_path} className={styles.poster} />
-            </div>
-            <div className={styles.titleBox}>
-                <h1 className={styles.title}>{moviesData.title}</h1>
-                <h2 className={styles.description}>{moviesData.description}</h2>
+                <p className={styles.description}>{moviesData.description}</p>
                 <div className={styles.information}>
                     <div className={styles.release}>
                         <h3 className={styles.subHeading}>Release date</h3>
@@ -46,13 +41,13 @@ function DetailedMovieContent({ movieData }) {
                         ))}
                     </div>
                 </div>
-                <a href={moviesData.homepage} className={styles.link}>
+                {/* <a href={moviesData.homepage} className={styles.link}>
                     {moviesData.homepage}
-                </a>
+                </a> */}
             </div>
             <button className={styles.goBack} onClick={() => navigate(-1)}>
                 <img className={styles.goBackImg} src={closeImg} />
-            </button> */}
+            </button>
         </div>
     );
 }
