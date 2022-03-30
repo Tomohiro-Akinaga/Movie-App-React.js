@@ -43,6 +43,11 @@
 .list {
     color: $navigation-text;
     margin: 0 10px;
+    transition: all 0.2s;
+    &:hover {
+        color: #fff;
+        cursor: pointer;
+    }
     &.active {
         color: #fff;
     }

@@ -1,7 +1,7 @@
-@import "../../../variables";
+@import "../../../../variables";
 
 .container {
-    padding: 0 60px;
+    padding: 60px;
     padding-top: 20px;
     background-color: #000;
     height: 250px;
@@ -17,4 +17,10 @@
     align-items: center;
     overflow: scroll;
     height: 250px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        padding: 30px;
+    }
 }

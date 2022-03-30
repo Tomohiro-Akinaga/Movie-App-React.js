@@ -1,8 +1,14 @@
-import PropTypes from "prop-types";
 import NowPlayingItem from "./NowPlaying-Item/NowPlayingItem";
-import NowPlayingStyle from "./NowPlaying.module.scss";
+import styles from "./NowPlaying.module.scss";
+import useAPI from "../../useAPI";
 
-function NowPlaying({ nowPlayingMoviesData }) {
+function NowPlaying() {
+    const { nowPlayingMoviesData } = useAPI();
+
+    if (!nowPlayingMoviesData) {
+        return null;
+    }
+
     const moviesData = [];
 
     nowPlayingMoviesData.results.map((item) => {
@@ -14,23 +20,19 @@ function NowPlaying({ nowPlayingMoviesData }) {
     });
 
     return (
-        <div className={NowPlayingStyle.container}>
-            <h3 className={NowPlayingStyle.heading}>Now Playing</h3>
-            <ul className={NowPlayingStyle.nowPlaying}>
+        <div className={styles.container}>
+            <h3 className={styles.heading}>Now Playing</h3>
+            <ul className={styles.nowPlaying}>
                 {moviesData.map((item, index) => (
                     <NowPlayingItem
                         key={index}
                         id={item.id}
-                        posterPath={item.posterPath}
+                        posterPath={item.posterPath}  
                     />
                 ))}
             </ul>
         </div>
     );
 }
-
-NowPlaying.propTypes = {
-    nowPlayingMoviesData: PropTypes.object,
-};
 
 export default NowPlaying;

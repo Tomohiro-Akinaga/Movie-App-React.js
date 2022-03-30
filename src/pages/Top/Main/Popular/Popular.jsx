@@ -1,8 +1,14 @@
-import PropTypes from "prop-types";
+import useAPI from "../../useAPI";
 import PopularItem from "./Popular-Item/PopularItem";
-import PopularStyle from "./Popular.module.scss";
+import styles from "./Popular.module.scss";
 
-function Popular({ popularMoviesData, setDetailed, setMovieID }) {
+function Popular() {
+    const { popularMoviesData } = useAPI();
+
+    if (!popularMoviesData) {
+        return null;
+    }
+
     const moviesData = [];
 
     popularMoviesData.results.map((item) => {
@@ -14,25 +20,19 @@ function Popular({ popularMoviesData, setDetailed, setMovieID }) {
     });
 
     return (
-        <div className={PopularStyle.container}>
-            <h3 className={PopularStyle.heading}>Popular</h3>
-            <ul className={PopularStyle.popular}>
+        <div className={styles.container}>
+            <h3 className={styles.heading}>Popular</h3>
+            <ul className={styles.popular}>
                 {moviesData.map((item, index) => (
                     <PopularItem
                         key={index}
                         id={item.id}
                         posterPath={item.posterPath}
-                        setDetailed={setDetailed}
-                        setMovieID={setMovieID}
                     />
                 ))}
             </ul>
         </div>
     );
 }
-
-Popular.propTypes = {
-    popularMoviesData: PropTypes.object,
-};
 
 export default Popular;

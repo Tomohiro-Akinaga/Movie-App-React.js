@@ -1,16 +1,16 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import ItemStyle from "./Item.module.scss";
 
-function PopularItem({ index, id, posterPath, setDetailed, setMovieID }) {
+function PopularItem({ index, id, posterPath }) {
+    const navigate = useNavigate();
+
     return (
         <li
             key={index}
             id={id}
             className={ItemStyle.item}
-            onClick={() => {
-                setMovieID(id);
-                setDetailed(true);
-            }}
+            onClick={() => navigate("/detailed", { state: id })}
         >
             <img src={posterPath} className={ItemStyle.poster} />
         </li>
