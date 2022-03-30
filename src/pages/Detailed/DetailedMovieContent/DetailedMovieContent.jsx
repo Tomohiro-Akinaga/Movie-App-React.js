@@ -25,6 +25,12 @@ function DetailedMovieContent({ movieData }) {
             </div>
             <div className={styles.titleBox}>
                 <h1 className={styles.title}>{moviesData.title}</h1>
+            </div>
+            {/* <div className={styles.posterBox}>
+                <img src={moviesData.poster_path} className={styles.poster} />
+            </div>
+            <div className={styles.titleBox}>
+                <h1 className={styles.title}>{moviesData.title}</h1>
                 <h2 className={styles.description}>{moviesData.description}</h2>
                 <div className={styles.information}>
                     <div className={styles.release}>
@@ -46,7 +52,7 @@ function DetailedMovieContent({ movieData }) {
             </div>
             <button className={styles.goBack} onClick={() => navigate(-1)}>
                 <img className={styles.goBackImg} src={closeImg} />
-            </button>
+            </button> */}
         </div>
     );
 }
