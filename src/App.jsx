@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import Top from "./pages/Top/Top";
+import SearchResult from "./pages/SearchResult/SearchResult";
 import Detailed from "./pages/Detailed/Detailed";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
@@ -29,8 +30,9 @@ function App() {
                     </Route>
                     <Route path="bundles" element={<Bundles />} />
                 </Route> */}
-                <Route path="/" element={<Top setMovieID={setMovieID} />} />
-                <Route path="/detailed" element={<Detailed />} />
+                <Route path="/" element={<Top />} />
+                <Route path="search-result" element={<SearchResult />} />
+                <Route path="detailed" element={<Detailed />} />
                 <Route path="signin" element={<SignIn />} />
                 <Route path="signup" element={<SignUp />} />
                 {/* <Route path="dashbord" element={<Dashbord />} /> */}

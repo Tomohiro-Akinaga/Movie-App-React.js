@@ -1,14 +1,14 @@
-import SearchResultStyle from "./SearchResult.module.scss";
-import PropTypes from "prop-types";
-import SearchResultItem from "./SearchResult-Item/SearchResultItem";
-import Loading from "../Loading/Loading";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import useAPI from "./useAPI";
+import Header from "../../components/Header/Header";
+import SearchResultBox from "./SearchResult-Box/SearchResultBox";
+import Footer from "../../components/Footer/Footer";
 
-function SearchResult({ setSearch, searchKeyword, setMovieID, setDetailed }) {
-    const [error, setError] = useState();
+function SearchResult() {
+    const location = useLocation();
+    const searchKeyword = location.state;
     const searchMoviesData = useAPI(searchKeyword);
+
     const moviesData = [];
 
     if (!searchMoviesData) {
@@ -28,34 +28,14 @@ function SearchResult({ setSearch, searchKeyword, setMovieID, setDetailed }) {
 
     return (
         <>
-            {/* {!searchMoviesData && <Loading />} */}
-            <div className={SearchResultStyle.container}>
-                <div className={SearchResultStyle.search}>
-                    <h2 className={SearchResultStyle.heading}>Search result</h2>
-                    <p className={SearchResultStyle.keyword}>{searchKeyword}</p>
-                </div>
-                {error && (
-                    <p className={SearchResultStyle.errorMessage}>{error}</p>
-                )}
-                <ul className={SearchResultStyle.itemBox}>
-                    {moviesData.map((item, index) => (
-                        <SearchResultItem
-                            key={index}
-                            id={item.id}
-                            posterPath={item.posterPath}
-                            setMovieID={setMovieID}
-                            setDetailed={setDetailed}
-                            setSearch={setSearch}
-                        />
-                    ))}
-                </ul>
-            </div>
+            <Header />
+            <SearchResultBox
+                moviesData={moviesData}
+                searchKeyword={searchKeyword}
+            />
+            <Footer />
         </>
     );
 }
-SearchResult.propTypes = {
-    searchMoviesData: PropTypes.object,
-    searchKeyword: PropTypes.string,
-};
 
 export default SearchResult;

@@ -1,10 +1,18 @@
 .container {
+    position: relative;
     min-height: 80vh;
-    overflow: hidden;
-    padding: 2vh 60px;
+    padding: 10px 60px;
     background-color: rgb(24, 24, 24);
     display: flex;
     justify-content: space-evenly;
+}
+
+.posterBox {
+    height: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .poster {
@@ -46,6 +54,9 @@
 }
 
 .goBack {
+    position: absolute;
+    top: 30px;
+    right: 30px;
     width: 30px;
     height: 30px;
     border-radius: 50%;

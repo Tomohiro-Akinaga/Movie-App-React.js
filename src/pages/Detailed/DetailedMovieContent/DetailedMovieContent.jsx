@@ -20,7 +20,9 @@ function DetailedMovieContent({ movieData }) {
 
     return (
         <div className={styles.container}>
-            <img src={moviesData.poster_path} className={styles.poster} />
+            <div className={styles.posterBox}>
+                <img src={moviesData.poster_path} className={styles.poster} />
+            </div>
             <div className={styles.titleBox}>
                 <h1 className={styles.title}>{moviesData.title}</h1>
                 <h2 className={styles.description}>{moviesData.description}</h2>
