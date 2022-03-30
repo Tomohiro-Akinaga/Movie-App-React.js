@@ -1,8 +1,14 @@
-import PropTypes from "prop-types";
+import useAPI from "../../useAPI";
 import UpComingItem from "./UpComing-Item/UpComingItem";
-import UpComingStyle from "./UpComing.module.scss";
+import styles from "./UpComing.module.scss";
 
-function UpComing({ upComingMoviesData }) {
+function UpComing() {
+    const { upComingMoviesData } = useAPI();
+
+    if (!upComingMoviesData) {
+        return null;
+    }
+
     const moviesData = [];
 
     upComingMoviesData.results.map((item) => {
@@ -14,9 +20,9 @@ function UpComing({ upComingMoviesData }) {
     });
 
     return (
-        <div className={UpComingStyle.container}>
-            <h3 className={UpComingStyle.heading}>Upcoming</h3>
-            <ul className={UpComingStyle.popular}>
+        <div className={styles.container}>
+            <h3 className={styles.heading}>Upcoming</h3>
+            <ul className={styles.upComing}>
                 {moviesData.map((item, index) => (
                     <UpComingItem
                         key={index}
@@ -28,9 +34,5 @@ function UpComing({ upComingMoviesData }) {
         </div>
     );
 }
-
-UpComing.propTypes = {
-    upComingMoviesData: PropTypes.object,
-};
 
 export default UpComing;

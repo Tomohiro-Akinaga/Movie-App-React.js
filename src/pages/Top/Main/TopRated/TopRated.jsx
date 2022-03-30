@@ -1,8 +1,14 @@
-import PropTypes from "prop-types";
 import TopRatedItem from "./TopRated-Item/TopRatedItem";
-import TopRatedStyle from "./TopRated.module.scss";
+import useAPI from "../../useAPI";
+import styles from "./TopRated.module.scss";
 
-function TopRated({ topRatedMoviesData, setDetailed, setMovieID }) {
+function TopRated() {
+    const { topRatedMoviesData } = useAPI();
+
+    if (!topRatedMoviesData) {
+        return null;
+    }
+
     const moviesData = [];
 
     topRatedMoviesData.results.map((item) => {
@@ -14,25 +20,19 @@ function TopRated({ topRatedMoviesData, setDetailed, setMovieID }) {
     });
 
     return (
-        <div className={TopRatedStyle.container}>
-            <h3 className={TopRatedStyle.heading}>Top Rated</h3>
-            <ul className={TopRatedStyle.topRated}>
+        <div className={styles.container}>
+            <h3 className={styles.heading}>Top Rated</h3>
+            <ul className={styles.topRated}>
                 {moviesData.map((item, index) => (
                     <TopRatedItem
                         key={index}
                         id={item.id}
                         posterPath={item.posterPath}
-                        setDetailed={setDetailed}
-                        setMovieID={setMovieID}
                     />
                 ))}
             </ul>
         </div>
     );
 }
-
-TopRated.propTypes = {
-    topRatedMoviesData: PropTypes.object,
-};
 
 export default TopRated;

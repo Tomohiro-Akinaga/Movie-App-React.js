@@ -1,8 +1,14 @@
-import PropTypes from "prop-types";
 import TrendingItem from "./Trending-Item/TrendingItem";
-import TrendingStyle from "./Trending.module.scss";
+import useAPI from "../../useAPI";
+import styles from "./Trending.module.scss";
 
-function Trending({ trendingMoviesData }) {
+function Trending() {
+    const { trendingMoviesData } = useAPI();
+
+    if (!trendingMoviesData) {
+        return null;
+    }
+
     const moviesData = [];
 
     trendingMoviesData.results.map((item) => {
@@ -14,9 +20,9 @@ function Trending({ trendingMoviesData }) {
     });
 
     return (
-        <div className={TrendingStyle.container}>
-            <h3 className={TrendingStyle.heading}>Trending</h3>
-            <ul className={TrendingStyle.trending}>
+        <div className={styles.container}>
+            <h3 className={styles.heading}>Trending</h3>
+            <ul className={styles.trending}>
                 {moviesData.map((item, index) => (
                     <TrendingItem
                         key={index}
@@ -28,9 +34,5 @@ function Trending({ trendingMoviesData }) {
         </div>
     );
 }
-
-Trending.propTypes = {
-    trendingMoviesData: PropTypes.object,
-};
 
 export default Trending;

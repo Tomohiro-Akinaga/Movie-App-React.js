@@ -1,10 +1,18 @@
 import PropTypes from "prop-types";
-import ItemStyle from "./Item.module.scss";
+import styles from "./Item.module.scss";
+import { useNavigate } from "react-router";
 
 function TrendingItem({ index, id, posterPath }) {
+    const navigate = useNavigate();
+
     return (
-        <li key={index} id={id} className={ItemStyle.item}>
-            <img src={posterPath} className={ItemStyle.poster} />
+        <li
+            key={index}
+            id={id}
+            className={styles.item}
+            onClick={() => navigate("/detailed", { state: id })}
+        >
+            <img src={posterPath} className={styles.poster} />
         </li>
     );
 }

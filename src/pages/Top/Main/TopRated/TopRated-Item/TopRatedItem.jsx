@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
-import ItemStyle from "./Item.module.scss";
+import { useNavigate } from "react-router-dom";
+import styles from "./Item.module.scss";
 
-function TopRatedItem({ index, id, posterPath, setMovieID, setDetailed }) {
+function TopRatedItem({ index, id, posterPath }) {
+    const navigate = useNavigate();
     return (
         <li
             key={index}
             id={id}
-            className={ItemStyle.item}
+            className={styles.item}
             onClick={() => {
-                setMovieID(id);
-                setDetailed(true);
+                navigate("/detailed", { state: id });
             }}
         >
-            <img src={posterPath} className={ItemStyle.poster} />
+            <img src={posterPath} className={styles.poster} />
         </li>
     );
 }
