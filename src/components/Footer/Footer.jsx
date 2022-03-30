@@ -17,7 +17,12 @@ export default function Footer() {
         <footer>
             <ul className={styles.container}>
                 {list.map((item, index) => (
-                    <a href={item.url} key={index} className={styles.link}>
+                    <a
+                        href={item.url}
+                        key={index}
+                        className={styles.link}
+                        target="_blank"
+                    >
                         {item.name}
                     </a>
                 ))}
