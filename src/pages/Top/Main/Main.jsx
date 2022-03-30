@@ -4,8 +4,9 @@ import Popular from "./Popular/Popular";
 import TopRated from "./TopRated/TopRated";
 import Trending from "./Trending/Trending";
 import UpComing from "./UpComing/UpComing";
+import PropTypes from "prop-types";
 
-function Main() {
+function Main({ setLoading }) {
     return (
         <>
             <Heading />
@@ -13,9 +14,13 @@ function Main() {
             <Trending />
             <NowPlaying />
             <TopRated />
-            <UpComing />
+            <UpComing setLoading={setLoading} />
         </>
     );
 }
+
+Main.propTypes = {
+    setLoading: PropTypes.func,
+};
 
 export default Main;

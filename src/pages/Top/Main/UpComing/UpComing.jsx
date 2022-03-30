@@ -1,8 +1,10 @@
 import useAPI from "../../useAPI";
 import UpComingItem from "./UpComing-Item/UpComingItem";
 import styles from "./UpComing.module.scss";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 
-function UpComing() {
+function UpComing({ setLoading }) {
     const { upComingMoviesData } = useAPI();
 
     if (!upComingMoviesData) {
@@ -28,11 +30,16 @@ function UpComing() {
                         key={index}
                         id={item.id}
                         posterPath={item.posterPath}
+                        setLoading={setLoading}
                     />
                 ))}
             </ul>
         </div>
     );
 }
+
+UpComing.propTypes = {
+    setLoading: PropTypes.func,
+};
 
 export default UpComing;

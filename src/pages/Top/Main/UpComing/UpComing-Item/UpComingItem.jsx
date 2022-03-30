@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styles from "./Item.module.scss";
 
-function UpComingItem({ index, id, posterPath }) {
+function UpComingItem({ index, id, posterPath, setLoading }) {
     const navigate = useNavigate();
     return (
         <li
@@ -10,6 +10,7 @@ function UpComingItem({ index, id, posterPath }) {
             id={id}
             className={styles.item}
             onClick={() => navigate("/detailed", { state: id })}
+            onLoad={() => setLoading(false)}
         >
             <img src={posterPath} className={styles.poster} />
         </li>

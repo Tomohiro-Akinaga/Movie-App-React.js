@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .container {
     background-color: #000;
     padding: 0 60px;
@@ -15,9 +17,10 @@
     padding-top: 30px;
 }
 
-.errorMessage {
+.error {
     text-align: center;
-    color: grey;
+    margin: 30px;
+    color: $error;
 }
 
 .search {
