@@ -41,9 +41,13 @@ function DetailedMovieContent({ movieData }) {
                         ))}
                     </div>
                 </div>
-                {/* <a href={moviesData.homepage} className={styles.link}>
+                <a
+                    href={moviesData.homepage}
+                    className={styles.link}
+                    target="_blank"
+                >
                     {moviesData.homepage}
-                </a> */}
+                </a>
             </div>
             <button className={styles.goBack} onClick={() => navigate(-1)}>
                 <img className={styles.goBackImg} src={closeImg} />
